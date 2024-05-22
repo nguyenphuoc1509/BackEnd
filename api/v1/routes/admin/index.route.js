@@ -9,4 +9,6 @@ module.exports = (app) => {
     
     app.use(version + `${PATH_ADMIN}` , authRoutes);
 
+    app.use(version + `${PATH_ADMIN}/accounts` , accountsRoutes);
+
 }
