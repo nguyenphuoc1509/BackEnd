@@ -1,4 +1,5 @@
 const Accounts = require("../../models/accounts.model");
+const md5 = require("md5");
 
 // [POST] /api/v1/admin/login
 module.exports.loginPost = async (req, res) => {
@@ -16,7 +17,7 @@ module.exports.loginPost = async (req, res) => {
                 msg: "Email không tồn tại!"
             });
         }
-        if (password != account.password) {
+        if (md5(password) != account.password) {
             return res.json({
                 code: 402,
                 msg: "Sai mật khẩu!"

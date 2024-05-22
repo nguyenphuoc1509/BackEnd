@@ -4,7 +4,6 @@ const md5 = require('md5');
 
 // [POST] /api/v1/admin/accounts/create
 module.exports.createPost = async (req, res) => {
-
     try {
         const email = req.body.email;
         const account = await Accounts.findOne({
@@ -21,6 +20,7 @@ module.exports.createPost = async (req, res) => {
             req.body.password = md5(req.body.password);
 
             const record = new Accounts(req.body);
+            record.status = "active";
             const data = await record.save();
             return res.json({
                 code: 200,
