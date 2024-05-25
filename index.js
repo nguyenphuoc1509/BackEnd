@@ -9,7 +9,7 @@ database.connect();
 
 const app = express();
 const port = process.env.PORT;
-
+console.log("OK bo m");
 
 app.use(cors());
 
